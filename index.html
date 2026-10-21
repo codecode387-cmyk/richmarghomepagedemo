@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Richmarg Powertech LTD | Smart Energy Solutions</title>
+    <meta name="description" content="Richmarg Powertech LTD provides residential and commercial solar energy, inverter, and energy storage solutions for homes and businesses. Contact us to discuss your energy needs.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Richmarg Powertech LTD | Smart Energy Solutions">
+    <meta property="og:description" content="Residential and Commercial Solar EPC, Inverter & Energy Storage Solutions.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --navy: #10213A;
+            --gold: #F4B323;
+            --gold-hover: #d99c1a;
+            --white: #FFFFFF;
+            --light-bg: #F4F7FA;
+            --charcoal: #252B35;
+            --text-muted: #6B7280;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Syne', sans-serif;
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font-main); color: var(--charcoal); background: var(--white); line-height: 1.6; overflow-x: hidden; width: 100%; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.15; color: var(--navy); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+        button { font-family: inherit; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--light-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 5px; }
+
+        /* Utilities */
+        .container { width: 92%; max-width: 1280px; margin: 0 auto; }
+        .section-padding { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 12px; position: relative; display: inline-block; letter-spacing: -0.5px; }
+        .section-header h2::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 70px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--navy)); border-radius: 2px; }
+        .section-header p { color: var(--text-muted); font-size: clamp(0.95rem, 2vw, 1.1rem); max-width: 640px; margin: 18px auto 0; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; font-size: clamp(0.85rem, 2vw, 1rem); font-weight: 600; border-radius: 8px; cursor: pointer; transition: var(--transition); border: none; gap: 8px; text-align: center; white-space: nowrap; }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(244, 179, 35, 0.4); }
+        .btn-navy { background: var(--navy); color: var(--white); }
+        .btn-navy:hover { background: #08162a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 33, 58, 0.3); }
+        .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+        .btn-outline:hover { background: var(--navy); color: var(--white); }
+        .btn-outline-light { background: transparent; color: var(--white); border: 2px solid var(--white); }
+        .btn-outline-light:hover { background: var(--white); color: var(--navy); }
+        .btn-whatsapp { background: #25D366; color: var(--white); }
+        .btn-whatsapp:hover { background: #1ebe57; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); padding: 12px 0; z-index: 1000; transition: var(--transition); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav.scrolled { padding: 8px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; flex-direction: column; }
+        .logo-text { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -0.5px; }
+        .logo-text span { color: var(--gold); }
+        .logo-slogan { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 700; margin-top: 3px; }
+        
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { color: var(--navy); font-weight: 600; font-size: 0.88rem; transition: var(--transition); position: relative; }
+        .nav-links a:hover { color: var(--gold); }
+        .hamburger { display: none; color: var(--navy); cursor: pointer; background: none; border: none; padding: 5px; }
+
+        /* Hero */
+        .hero { min-height: 100vh; padding: 120px 0 60px; background: linear-gradient(135deg, rgba(16, 33, 58, 0.92) 0%, rgba(16, 33, 58, 0.85) 100%), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero-content { color: var(--white); max-width: 820px; position: relative; z-index: 2; }
+        .hero-badge { display: inline-block; padding: 6px 14px; background: rgba(244, 179, 35, 0.15); border: 1px solid var(--gold); color: var(--gold); border-radius: 50px; font-size: clamp(0.65rem, 1.5vw, 0.8rem); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+        .hero h1 { font-size: clamp(1.8rem, 5vw, 4rem); margin-bottom: 18px; color: var(--white); line-height: 1.1; letter-spacing: -1px; }
+        .hero h1 span { color: var(--gold); }
+        .hero p { font-size: clamp(0.95rem, 2vw, 1.15rem); margin-bottom: 30px; color: #d1d5db; max-width: 640px; }
+        .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        .hero-highlights { display: flex; gap: 20px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px; flex-wrap: wrap; }
+        .highlight-item { display: flex; align-items: center; gap: 8px; font-size: clamp(0.8rem, 1.8vw, 0.9rem); font-weight: 600; color: #e5e7eb; }
+        .highlight-item i { color: var(--gold); flex-shrink: 0; }
+
+        /* Introduction */
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .intro-image { border-radius: 14px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+        .intro-image img { width: 100%; height: 480px; }
+        .intro-content h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 15px; }
+        .intro-content p { color: var(--text-muted); margin-bottom: 18px; font-size: clamp(0.92rem, 1.8vw, 1.02rem); }
+
+        /* Core Solutions */
+        .solutions-section { background: var(--light-bg); }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .solution-card { background: var(--white); padding: 35px 28px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: var(--transition); border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
+        .solution-card:hover { border-bottom-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
+        .solution-icon { width: 60px; height: 60px; background: var(--light-bg); color: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: var(--transition); }
+        .solution-card:hover .solution-icon { background: var(--gold); color: var(--navy); transform: scale(1.08); }
+        .solution-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
+        .solution-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; flex-grow: 1; }
+
+        /* Residential & Commercial Split */
+        .split-section { padding: 0; }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        .split-card { padding: 80px 40px; display: flex; flex-direction: column; justify-content: center; }
+        .split-card.residential { background: var(--navy); color: var(--white); }
+        .split-card.commercial { background: var(--light-bg); color: var(--charcoal); }
+        .split-card h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 15px; }
+        .split-card.residential h2 { color: var(--white); }
+        .split-card p { font-size: 1rem; margin-bottom: 25px; max-width: 450px; }
+        .split-card.residential p { color: #d1d5db; }
+        .split-card.commercial p { color: var(--text-muted); }
+        .split-card .btn { align-self: flex-start; }
+
+        /* Why Choose Us */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .feature-card { text-align: center; padding: 35px 20px; border: 1px solid #e5e7eb; border-radius: 14px; transition: var(--transition); background: var(--white); }
+        .feature-card:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(244, 179, 35, 0.1); transform: translateY(-5px); }
+        .feature-icon { width: 65px; height: 65px; background: var(--light-bg); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: var(--transition); }
+        .feature-card:hover .feature-icon { background: var(--gold); color: var(--navy); }
+        .feature-card h3 { margin-bottom: 12px; font-size: 1.1rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.88rem; }
+
+        /* Process */
+        .process-section { background: var(--light-bg); }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+        .step-card { background: var(--white); padding: 35px 25px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); transition: var(--transition); text-align: center; position: relative; }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0,0,0,0.08); }
+        .step-number { width: 50px; height: 50px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin: 0 auto 18px; }
+        .step-card h3 { margin-bottom: 12px; font-size: 1.1rem; }
+        .step-card p { color: var(--text-muted); font-size: 0.88rem; }
+
+        /* FAQ */
+        .faq-section { background: var(--light-bg); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--white); border-radius: 10px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); overflow: hidden; transition: var(--transition); }
+        .faq-question { width: 100%; text-align: left; padding: 20px 22px; background: none; border: none; font-size: clamp(0.95rem, 2vw, 1.05rem); font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .faq-question i { transition: transform 0.3s ease; color: var(--gold); flex-shrink: 0; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 22px; }
+        .faq-item.active .faq-answer { max-height: 400px; padding-bottom: 20px; }
+        .faq-answer p { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info-item { display: flex; gap: 16px; margin-bottom: 25px; }
+        .contact-info-icon { width: 52px; height: 52px; background: var(--light-bg); color: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-info-text h4 { margin-bottom: 4px; font-size: 1.05rem; }
+        .contact-info-text p, .contact-info-text a { color: var(--text-muted); font-size: 0.95rem; word-break: break-word; }
+        .contact-info-text a:hover { color: var(--gold); }
+        .contact-buttons { display: flex; flex-direction: column; gap: 12px; }
+
+        /* Footer */
+        footer { background: var(--navy); color: var(--white); padding: 60px 0 25px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.3fr; gap: 35px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--gold); margin-bottom: 18px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-col p { color: #9ca3af; font-size: 0.88rem; margin-bottom: 12px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #9ca3af; font-size: 0.88rem; transition: var(--transition); }
+        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .footer-bottom p { color: #6b7280; font-size: 0.85rem; }
+        .back-to-top { background: var(--gold); color: var(--navy); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; transition: var(--transition); }
+        .back-to-top:hover { background: var(--gold-hover); }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: var(--white); width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); z-index: 999; transition: var(--transition); }
+        .floating-whatsapp:hover { transform: scale(1.08); }
+
+        /* Modals */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(16, 33, 58, 0.9); backdrop-filter: blur(5px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transition); padding: 15px; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--white); width: 100%; max-width: 620px; border-radius: 16px; padding: 30px 25px; position: relative; max-height: 90vh; overflow-y: auto; transform: translateY(20px) scale(0.98); transition: var(--transition); border-top: 5px solid var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        .modal-close { position: absolute; top: 15px; right: 15px; background: var(--light-bg); border: none; cursor: pointer; color: var(--navy); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .modal-close:hover { background: var(--gold); color: var(--navy); transform: rotate(90deg); }
+        .modal-content h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); margin-bottom: 8px; padding-right: 30px; }
+        .modal-content > p { color: var(--text-muted); margin-bottom: 22px; font-size: 0.9rem; }
+        
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.88rem; color: var(--navy); }
+        .form-control { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-family: var(--font-main); font-size: 0.95rem; transition: var(--transition); background: var(--light-bg); }
+        .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(244, 179, 35, 0.15); background: var(--white); }
+        textarea.form-control { resize: vertical; min-height: 90px; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; }
+        .checkbox-group input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; }
+        .checkbox-group label { font-weight: 400; font-size: 0.85rem; color: var(--text-muted); }
+        .error-message { color: #ef4444; font-size: 0.8rem; margin-top: 5px; display: none; font-weight: 500; }
+        .form-group.error .form-control { border-color: #ef4444; }
+        .form-group.error .error-message { display: block; }
+        .success-message { display: none; background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; border-left: 4px solid #25D366; }
+        .fallback-message { display: none; margin-top: 20px; padding: 15px; background: var(--light-bg); border-radius: 8px; border: 1px dashed #ccc; }
+        .fallback-message textarea { width: 100%; height: 130px; margin-bottom: 12px; padding: 12px; font-family: var(--font-main); border: 1px solid #ddd; border-radius: 8px; font-size: 0.85rem; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .intro-grid, .contact-grid, .split-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .intro-image img { height: 380px; }
+            .split-card { padding: 60px 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background: var(--white); flex-direction: column; justify-content: center; align-items: center; gap: 20px; transition: var(--transition); box-shadow: -10px 0 30px rgba(0,0,0,0.15); padding: 30px; }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1rem; }
+            .hamburger { display: block; z-index: 1001; }
+            
+            .hero { padding: 110px 0 50px; min-height: auto; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-buttons .btn { width: 100%; }
+            .hero-highlights { flex-direction: column; gap: 10px; }
+
+            .section-padding { padding: 55px 0; }
+
+            .solutions-grid, .features-grid, .steps-grid { grid-template-columns: 1fr; }
+            .solution-card, .feature-card, .step-card { padding: 28px 22px; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+
+            .modal-content { padding: 25px 18px; max-height: 92vh; }
+            .contact-buttons .btn { width: 100%; }
+
+            .floating-whatsapp { width: 52px; height: 52px; bottom: 15px; right: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.7rem; }
+            .btn { padding: 12px 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-text">Richmarg<span> Powertech</span></div>
+                <div class="logo-slogan">Smart Energy Solutions</div>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#residential">Residential</a></li>
+                <li><a href="#commercial">Commercial</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="btn btn-gold open-enquiry-modal" data-enquiry="General Inquiry">Request a Quote</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="hero-badge">Smart Energy Solutions</span>
+                <h1>Smart Energy Solutions for <span>Homes and Businesses.</span></h1>
+                <p>Richmarg Powertech LTD delivers residential and commercial solar EPC solutions, providing solar, inverter, and energy storage options designed around the power needs of homes and businesses.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-gold open-enquiry-modal" data-enquiry="General Inquiry">Request a Quote</button>
+                    <a href="https://wa.me/2347045720058?text=Hello%20Richmarg%20Powertech%20LTD,%20I%20would%20like%20to%20enquire%20about%20your%20smart%20energy%20solutions.%20I%20am%20interested%20in%20learning%20more%20about%20your%20solar,%20inverter,%20and%20energy%20storage%20options." target="_blank" class="btn btn-whatsapp">
+                        <i data-lucide="message-circle"></i> Chat with Us on WhatsApp
+                    </a>
+                </div>
+                <div class="hero-highlights">
+                    <div class="highlight-item"><i data-lucide="check-circle"></i> Residential Energy Solutions</div>
+                    <div class="highlight-item"><i data-lucide="check-circle"></i> Commercial Solar Solutions</div>
+                    <div class="highlight-item"><i data-lucide="check-circle"></i> Inverter & Energy Storage</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="about" class="section-padding">
+        <div class="container intro-grid">
+            <div class="intro-image reveal">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Engineer working on solar energy system" loading="lazy">
+            </div>
+            <div class="intro-content reveal reveal-delay-1">
+                <h2>Powering a Smarter Energy Future.</h2>
+                <p>Richmarg Powertech LTD focuses on smart energy solutions for residential and commercial customers.</p>
+                <p>With a focus on solar energy, inverter systems, and energy storage, the company helps customers explore power solutions suited to their needs.</p>
+                <p>We are committed to helping homes and businesses access dependable power through practical, well-planned energy systems.</p>
+                <a href="#solutions" class="btn btn-navy">Explore Our Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Solutions -->
+    <section id="solutions" class="section-padding solutions-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Core Solutions</h2>
+                <p>Solar, inverter, and energy storage solutions designed around real power needs.</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card reveal">
+                    <div class="solution-icon"><i data-lucide="sun"></i></div>
+                    <h3>Solar Energy Solutions</h3>
+                    <p>Solar energy systems designed to help customers make use of available sunlight and meet their electricity requirements.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Solar Energy">Explore Solution</button>
+                </div>
+                <div class="solution-card reveal reveal-delay-1">
+                    <div class="solution-icon"><i data-lucide="zap"></i></div>
+                    <h3>Inverter Systems</h3>
+                    <p>Inverter solutions that convert stored or generated electrical energy into usable power for compatible appliances and equipment.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Inverter System">Explore Solution</button>
+                </div>
+                <div class="solution-card reveal reveal-delay-2">
+                    <div class="solution-icon"><i data-lucide="battery-charging"></i></div>
+                    <h3>Energy Storage Solutions</h3>
+                    <p>Battery storage options that can store energy for use when solar generation is insufficient or when the system is configured to supply stored power.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Energy Storage">Explore Solution</button>
+                </div>
+                <div class="solution-card reveal">
+                    <div class="solution-icon"><i data-lucide="home"></i></div>
+                    <h3>Residential Solar EPC</h3>
+                    <p>Solar energy solutions for homeowners, planned around household energy consumption, appliance requirements, and budget.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Residential Solar EPC">Explore Solution</button>
+                </div>
+                <div class="solution-card reveal reveal-delay-1">
+                    <div class="solution-icon"><i data-lucide="building-2"></i></div>
+                    <h3>Commercial Solar EPC</h3>
+                    <p>Solutions for commercial customers looking to explore solar energy systems for offices, shops, and other business premises.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Commercial Solar EPC">Explore Solution</button>
+                </div>
+                <div class="solution-card reveal reveal-delay-2">
+                    <div class="solution-icon"><i data-lucide="layers"></i></div>
+                    <h3>Integrated Energy Systems</h3>
+                    <p>How solar panels, inverters, batteries, and related components may work together in a properly designed system.</p>
+                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Integrated Energy System">Explore Solution</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Residential & Commercial Split -->
+    <section class="split-section">
+        <div class="split-grid">
+            <div id="residential" class="split-card residential reveal">
+                <h2>Reliable Energy Solutions for Your Home.</h2>
+                <p>A properly planned solar and inverter system may help households meet their electricity needs, depending on system capacity, battery storage, sunlight, and appliance consumption.</p>
+                <p>We help homeowners explore solar panels, home inverter systems, and battery energy storage options tailored to their household energy requirements.</p>
+                <button class="btn btn-gold open-enquiry-modal" data-enquiry="Residential Solar EPC">Plan Your Home Energy Solution</button>
+            </div>
+            <div id="commercial" class="split-card commercial reveal reveal-delay-1">
+                <h2>Smarter Energy Solutions for Business.</h2>
+                <p>Solar, inverter, and storage systems can be evaluated for commercial electricity needs across offices, retail premises, and commercial buildings.</p>
+                <p>We help businesses understand their power requirements, assess energy consumption, and choose suitable system components.</p>
+                <button class="btn btn-navy open-enquiry-modal" data-enquiry="Commercial Solar EPC">Discuss Your Commercial Energy Project</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Energy Solutions Designed Around Real Needs.</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="home"></i></div>
+                    <h3>Residential & Commercial Focus</h3>
+                    <p>Solutions for both homes and business premises.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-icon"><i data-lucide="layers"></i></div>
+                    <h3>Integrated Energy Options</h3>
+                    <p>Solar, inverter, and energy storage solutions working together.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <div class="feature-icon"><i data-lucide="clipboard-list"></i></div>
+                    <h3>Practical System Planning</h3>
+                    <p>Consideration of electricity requirements and system capacity.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="message-circle"></i></div>
+                    <h3>Customer-Focused Enquiries</h3>
+                    <p>A clear path to discuss energy needs and request a quotation.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Smart Energy Approach</h3>
+                    <p>Emphasis on exploring suitable energy solutions rather than applying a one-size-fits-all system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section-padding process-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>How the Solar EPC Process Works</h2>
+                <p>A clear path from enquiry to installation and support.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>You explain your location, energy needs, and the appliances or equipment you want to power.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-number">2</div>
+                    <h3>Energy Requirements Assessment</h3>
+                    <p>Electricity consumption, operating hours, backup requirements, and installation conditions are reviewed.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-number">3</div>
+                    <h3>System Design & Quotation</h3>
+                    <p>A proposed system configuration and quotation are prepared based on the assessment and available equipment.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">4</div>
+                    <h3>Installation & Commissioning</h3>
+                    <p>Where included in the agreed contract, the system is installed, checked, and commissioned.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-number">5</div>
+                    <h3>Handover & Support</h3>
+                    <p>Operating guidance and any after-installation support confirmed by the company.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding faq-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <button class="faq-question">What solutions does Richmarg Powertech LTD provide? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>We provide residential and commercial solar EPC solutions, including solar energy systems, inverter systems, and energy storage solutions.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is the difference between solar panels and an inverter? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>Solar panels generate electricity from sunlight. The inverter converts that electricity into usable power for your appliances and equipment.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does battery energy storage work? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>Battery storage stores energy generated by your solar panels or from the grid, making it available for use when solar generation is insufficient or during outages.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can solar energy be used in residential buildings? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>Yes, solar energy can be used in residential buildings. The system is planned around your household's energy consumption, appliance requirements, and budget.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can a solar system be designed for a commercial business? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>Yes, we design commercial solar solutions for offices, retail premises, and other business environments based on your specific power requirements.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I determine the right system size? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>System size depends on your energy consumption, peak power requirements, operating hours, available sunlight, and battery requirements. Contact us to discuss your needs.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What information is needed for a quotation? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>To prepare a quotation, we need your location, the appliances or equipment you want to power, and an estimate of your daily usage. You can submit this via our enquiry form.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How can I contact Richmarg Powertech LTD? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>You can contact us via WhatsApp or phone at 0704 572 0058, or by email at richmargpowertech@gmail.com.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="reveal">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i data-lucide="phone"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Phone / WhatsApp</h4>
+                            <a href="tel:+2347045720058">0704 572 0058</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i data-lucide="mail"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <a href="mailto:richmargpowertech@gmail.com">richmargpowertech@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal contact-buttons">
+                    <a href="https://wa.me/2347045720058?text=Hello%20Richmarg%20Powertech%20LTD,%20I%20would%20like%20to%20enquire%20about%20your%20smart%20energy%20solutions." target="_blank" class="btn btn-whatsapp">
+                        <i data-lucide="message-circle"></i> Chat on WhatsApp
+                    </a>
+                    <a href="mailto:richmargpowertech@gmail.com" class="btn btn-outline">
+                        <i data-lucide="mail"></i> Send an Email
+                    </a>
+                    <button class="btn btn-gold open-enquiry-modal" data-enquiry="General Inquiry">Request a Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 15px;">
+                        <div class="logo-text" style="color: var(--white);">Richmarg<span> Powertech</span></div>
+                        <div class="logo-slogan">Smart Energy Solutions</div>
+                    </a>
+                    <p>Residential and commercial Solar EPC company providing solar, inverter, and energy storage solutions for homes and businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#residential">Residential</a></li>
+                        <li><a href="#commercial">Commercial</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">Solar Energy</a></li>
+                        <li><a href="#solutions">Inverter Systems</a></li>
+                        <li><a href="#solutions">Energy Storage</a></li>
+                        <li><a href="#solutions">Residential EPC</a></li>
+                        <li><a href="#solutions">Commercial EPC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Phone: 0704 572 0058</p>
+                    <p>Email: richmargpowertech@gmail.com</p>
+                    <a href="https://wa.me/2347045720058" target="_blank" class="btn btn-whatsapp" style="margin-top: 10px; padding: 10px 18px; font-size: 0.85rem;">
+                        <i data-lucide="message-circle"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Richmarg Powertech LTD. All rights reserved.</p>
+                <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+                    <i data-lucide="arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/2347045720058?text=Hello%20Richmarg%20Powertech%20LTD,%20I%20would%20like%20to%20enquire%20about%20your%20smart%20energy%20solutions." target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- Enquiry Modal -->
+    <div class="modal-overlay" id="enquiry-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-enquiry-modal" aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            <h3>Request a Quote</h3>
+            <p>Fill out the form and we will open a WhatsApp chat with your details.</p>
+            
+            <div class="success-message" id="success-message">
+                WhatsApp is opening. Please press <strong>Send</strong> to deliver your enquiry. If it didn't open, use the fallback below.
+            </div>
+
+            <form id="enquiry-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" class="form-control" required>
+                    <div class="error-message">Please enter your full name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                    <div class="error-message">Please enter your phone number.</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" class="form-control" required>
+                    <div class="error-message">Please enter a valid email address.</div>
+                </div>
+                <div class="form-group">
+                    <label for="location">Project Location *</label>
+                    <input type="text" id="location" class="form-control" placeholder="City / Area" required>
+                    <div class="error-message">Please enter your project location.</div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-type">Customer Type *</label>
+                    <select id="customer-type" class="form-control" required>
+                        <option value="">Select type</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                    <div class="error-message">Please select a customer type.</div>
+                </div>
+                <div class="form-group">
+                    <label for="service-required">Service Required *</label>
+                    <select id="service-required" class="form-control" required>
+                        <option value="">Select service</option>
+                        <option value="Solar Energy">Solar Energy</option>
+                        <option value="Inverter System">Inverter System</option>
+                        <option value="Energy Storage">Energy Storage</option>
+                        <option value="Integrated System">Integrated System</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="error-message">Please select a service.</div>
+                </div>
+                <div class="form-group">
+                    <label for="appliances">Appliances or Equipment to Be Powered</label>
+                    <input type="text" id="appliances" class="form-control" placeholder="e.g., AC, Fridge, Lights">
+                </div>
+                <div class="form-group">
+                    <label for="usage">Estimated Energy Usage (if known)</label>
+                    <input type="text" id="usage" class="form-control" placeholder="e.g., 10kWh/day">
+                </div>
+                <div class="form-group">
+                    <label for="budget">Preferred Budget (Optional)</label>
+                    <input type="text" id="budget" class="form-control" placeholder="e.g., ₦2,000,000">
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information *</label>
+                    <textarea id="message" class="form-control" required></textarea>
+                    <div class="error-message">Please describe your requirements.</div>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">I agree that Richmarg Powertech LTD may use my information to respond to my inquiry. *</label>
+                </div>
+                <div class="error-message" id="consent-error" style="margin-bottom: 12px;">You must agree to the privacy terms.</div>
+                
+                <button type="submit" class="btn btn-gold" style="width: 100%;" id="submit-btn">Submit Quote Request</button>
+            </form>
+
+            <div class="fallback-message" id="fallback-message">
+                <p style="margin-bottom: 12px; font-weight: 600;">If WhatsApp didn't open, copy the message below and send it manually:</p>
+                <textarea id="fallback-text" readonly></textarea>
+                <button class="btn btn-gold" id="copy-btn" style="width: 100%; margin-bottom: 10px;">Copy Message</button>
+                <button class="btn btn-outline" id="retry-btn" style="width: 100%;">Try WhatsApp Again</button>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: #888; margin-top: 18px; text-align: center;">Your information is only used to respond to this inquiry.</p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+            
+            if (window.scrollY > 500) backToTop.style.display = 'flex';
+            else backToTop.style.display = 'none';
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if(navLinks.classList.contains('active')) icon.setAttribute('data-lucide', 'x');
+            else icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Enquiry Modal Logic
+        const enquiryModal = document.getElementById('enquiry-modal');
+        const closeEnquiryModal = document.getElementById('close-enquiry-modal');
+        const enquiryForm = document.getElementById('enquiry-form');
+        const successMessage = document.getElementById('success-message');
+        const fallbackMessage = document.getElementById('fallback-message');
+        const fallbackText = document.getElementById('fallback-text');
+        const submitBtn = document.getElementById('submit-btn');
+        const serviceSelect = document.getElementById('service-required');
+        const customerTypeSelect = document.getElementById('customer-type');
+
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.open-enquiry-modal')) {
+                e.preventDefault();
+                const btn = e.target.closest('.open-enquiry-modal');
+                const enquiryType = btn.getAttribute('data-enquiry');
+                
+                successMessage.style.display = 'none';
+                fallbackMessage.style.display = 'none';
+                enquiryForm.style.display = 'block';
+
+                if (enquiryType) {
+                    // Try to match Service Required
+                    let serviceMatch = false;
+                    for (let option of serviceSelect.options) {
+                        if (enquiryType.toLowerCase().includes(option.value.toLowerCase()) && option.value !== 'Other') {
+                            serviceSelect.value = option.value;
+                            serviceMatch = true;
+                            break;
+                        }
+                    }
+                    if (!serviceMatch && enquiryType !== 'General Inquiry') {
+                        serviceSelect.value = 'Other';
+                    }
+                    
+                    // Try to match Customer Type
+                    if (enquiryType.toLowerCase().includes('residential')) {
+                        customerTypeSelect.value = 'Residential';
+                    } else if (enquiryType.toLowerCase().includes('commercial')) {
+                        customerTypeSelect.value = 'Commercial';
+                    }
+                }
+                
+                enquiryModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        closeEnquiryModal.addEventListener('click', () => {
+            enquiryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        enquiryModal.addEventListener('click', (e) => {
+            if (e.target === enquiryModal) {
+                enquiryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (enquiryModal.classList.contains('active')) closeEnquiryModal.click();
+            }
+        });
+
+        enquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+            const requiredFields = ['name', 'phone', 'email', 'location', 'customer-type', 'service-required', 'message'];
+            
+            requiredFields.forEach(fieldId => {
+                const input = document.getElementById(fieldId);
+                const group = input.closest('.form-group');
+                if (!input.value.trim()) {
+                    group.classList.add('error');
+                    isValid = false;
+                } else {
+                    group.classList.remove('error');
+                }
+            });
+
+            // Email format validation
+            const emailInput = document.getElementById('email');
+            if (emailInput.value.trim() && !emailInput.value.includes('@')) {
+                emailInput.closest('.form-group').classList.add('error');
+                isValid = false;
+            }
+
+            const consent = document.getElementById('consent');
+            const consentError = document.getElementById('consent-error');
+            if (!consent.checked) {
+                consentError.style.display = 'block';
+                isValid = false;
+            } else {
+                consentError.style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Processing...';
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const location = document.getElementById('location').value.trim();
+            const customerType = document.getElementById('customer-type').value;
+            const serviceRequired = document.getElementById('service-required').value;
+            const appliances = document.getElementById('appliances').value.trim();
+            const usage = document.getElementById('usage').value.trim();
+            const budget = document.getElementById('budget').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            let waMessage = `Hello Richmarg Powertech LTD,\n\nI would like to make an enquiry.\n\n`;
+            waMessage += `Full Name: ${name}\n`;
+            waMessage += `Phone: ${phone}\n`;
+            waMessage += `Email: ${email}\n`;
+            waMessage += `Project Location: ${location}\n`;
+            waMessage += `Customer Type: ${customerType}\n`;
+            waMessage += `Service Required: ${serviceRequired}\n`;
+            if (appliances) waMessage += `Appliances/Equipment: ${appliances}\n`;
+            if (usage) waMessage += `Estimated Usage: ${usage}\n`;
+            if (budget) waMessage += `Preferred Budget: ${budget}\n\n`;
+            waMessage += `Additional Information:\n${message}\n\n`;
+            waMessage += `Please provide information about the available options, pricing, and next steps.\n\nThank you.`;
+
+            const encodedMessage = encodeURIComponent(waMessage);
+            const waUrl = `https://wa.me/2347045720058?text=${encodedMessage}`;
+
+            const newWindow = window.open(waUrl, '_blank');
+
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                showFallback(waMessage);
+            } else {
+                enquiryForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                showFallback(waMessage);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Submit Quote Request';
+        });
+
+        function showFallback(message) {
+            fallbackMessage.style.display = 'block';
+            fallbackText.value = message;
+            document.getElementById('copy-btn').onclick = () => {
+                fallbackText.select();
+                document.execCommand('copy');
+                const btn = document.getElementById('copy-btn');
+                const orig = btn.innerHTML;
+                btn.innerHTML = 'Copied!';
+                setTimeout(() => btn.innerHTML = orig, 2000);
+            };
+            document.getElementById('retry-btn').onclick = () => {
+                window.open(`https://wa.me/2347045720058?text=${encodeURIComponent(message)}`, '_blank');
+            };
+        }
+
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('input', () => {
+                input.closest('.form-group').classList.remove('error');
+            });
+        });
+        document.getElementById('consent').addEventListener('change', () => {
+            document.getElementById('consent-error').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
