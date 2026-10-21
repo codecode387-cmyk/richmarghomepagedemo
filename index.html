@@ -113,8 +113,12 @@
         /* Core Solutions */
         .solutions-section { background: var(--light-bg); }
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .solution-card { background: var(--white); padding: 35px 28px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: var(--transition); border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
+        .solution-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: var(--transition); border-bottom: 4px solid transparent; display: flex; flex-direction: column; overflow: hidden; }
         .solution-card:hover { border-bottom-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
+        .solution-image { width: 100%; height: 180px; overflow: hidden; }
+        .solution-image img { width: 100%; height: 100%; transition: transform 0.6s ease; }
+        .solution-card:hover .solution-image img { transform: scale(1.06); }
+        .solution-content { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
         .solution-icon { width: 60px; height: 60px; background: var(--light-bg); color: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: var(--transition); }
         .solution-card:hover .solution-icon { background: var(--gold); color: var(--navy); transform: scale(1.08); }
         .solution-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
@@ -123,9 +127,13 @@
         /* Residential & Commercial Split */
         .split-section { padding: 0; }
         .split-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        .split-card { padding: 80px 40px; display: flex; flex-direction: column; justify-content: center; }
+        .split-card { padding: 80px 40px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
         .split-card.residential { background: var(--navy); color: var(--white); }
         .split-card.commercial { background: var(--light-bg); color: var(--charcoal); }
+        .split-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; z-index: 0; }
+        .split-card.residential::before { background: url('https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80') center/cover; }
+        .split-card.commercial::before { background: url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80') center/cover; }
+        .split-card > * { position: relative; z-index: 1; }
         .split-card h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 15px; }
         .split-card.residential h2 { color: var(--white); }
         .split-card p { font-size: 1rem; margin-bottom: 25px; max-width: 450px; }
@@ -145,11 +153,15 @@
         /* Process */
         .process-section { background: var(--light-bg); }
         .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
-        .step-card { background: var(--white); padding: 35px 25px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); transition: var(--transition); text-align: center; position: relative; }
+        .step-card { background: var(--white); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); transition: var(--transition); overflow: hidden; display: flex; flex-direction: column; }
         .step-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0,0,0,0.08); }
-        .step-number { width: 50px; height: 50px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin: 0 auto 18px; }
-        .step-card h3 { margin-bottom: 12px; font-size: 1.1rem; }
-        .step-card p { color: var(--text-muted); font-size: 0.88rem; }
+        .step-image { width: 100%; height: 140px; overflow: hidden; }
+        .step-image img { width: 100%; height: 100%; transition: transform 0.6s ease; }
+        .step-card:hover .step-image img { transform: scale(1.06); }
+        .step-content { padding: 25px; text-align: center; flex-grow: 1; }
+        .step-number { width: 45px; height: 45px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; margin: -22px auto 15px; position: relative; z-index: 1; border: 3px solid var(--white); }
+        .step-card h3 { margin-bottom: 12px; font-size: 1rem; }
+        .step-card p { color: var(--text-muted); font-size: 0.85rem; }
 
         /* FAQ */
         .faq-section { background: var(--light-bg); }
@@ -235,8 +247,8 @@
             .section-padding { padding: 55px 0; }
 
             .solutions-grid, .features-grid, .steps-grid { grid-template-columns: 1fr; }
-            .solution-card, .feature-card, .step-card { padding: 28px 22px; }
-
+            .step-card { padding-bottom: 10px; }
+            
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
             .footer-bottom { flex-direction: column; text-align: center; }
 
@@ -330,40 +342,70 @@
             </div>
             <div class="solutions-grid">
                 <div class="solution-card reveal">
-                    <div class="solution-icon"><i data-lucide="sun"></i></div>
-                    <h3>Solar Energy Solutions</h3>
-                    <p>Solar energy systems designed to help customers make use of available sunlight and meet their electricity requirements.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Solar Energy">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="Solar panels installation" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="sun"></i></div>
+                        <h3>Solar Energy Solutions</h3>
+                        <p>Solar energy systems designed to help customers make use of available sunlight and meet their electricity requirements.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Solar Energy">Explore Solution</button>
+                    </div>
                 </div>
                 <div class="solution-card reveal reveal-delay-1">
-                    <div class="solution-icon"><i data-lucide="zap"></i></div>
-                    <h3>Inverter Systems</h3>
-                    <p>Inverter solutions that convert stored or generated electrical energy into usable power for compatible appliances and equipment.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Inverter System">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Solar inverter system" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="zap"></i></div>
+                        <h3>Inverter Systems</h3>
+                        <p>Inverter solutions that convert stored or generated electrical energy into usable power for compatible appliances and equipment.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Inverter System">Explore Solution</button>
+                    </div>
                 </div>
                 <div class="solution-card reveal reveal-delay-2">
-                    <div class="solution-icon"><i data-lucide="battery-charging"></i></div>
-                    <h3>Energy Storage Solutions</h3>
-                    <p>Battery storage options that can store energy for use when solar generation is insufficient or when the system is configured to supply stored power.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Energy Storage">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Battery energy storage" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="battery-charging"></i></div>
+                        <h3>Energy Storage Solutions</h3>
+                        <p>Battery storage options that can store energy for use when solar generation is insufficient or when the system is configured to supply stored power.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Energy Storage">Explore Solution</button>
+                    </div>
                 </div>
                 <div class="solution-card reveal">
-                    <div class="solution-icon"><i data-lucide="home"></i></div>
-                    <h3>Residential Solar EPC</h3>
-                    <p>Solar energy solutions for homeowners, planned around household energy consumption, appliance requirements, and budget.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Residential Solar EPC">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=600&q=80" alt="Residential solar installation" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="home"></i></div>
+                        <h3>Residential Solar EPC</h3>
+                        <p>Solar energy solutions for homeowners, planned around household energy consumption, appliance requirements, and budget.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Residential Solar EPC">Explore Solution</button>
+                    </div>
                 </div>
                 <div class="solution-card reveal reveal-delay-1">
-                    <div class="solution-icon"><i data-lucide="building-2"></i></div>
-                    <h3>Commercial Solar EPC</h3>
-                    <p>Solutions for commercial customers looking to explore solar energy systems for offices, shops, and other business premises.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Commercial Solar EPC">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=600&q=80" alt="Commercial solar system" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="building-2"></i></div>
+                        <h3>Commercial Solar EPC</h3>
+                        <p>Solutions for commercial customers looking to explore solar energy systems for offices, shops, and other business premises.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Commercial Solar EPC">Explore Solution</button>
+                    </div>
                 </div>
                 <div class="solution-card reveal reveal-delay-2">
-                    <div class="solution-icon"><i data-lucide="layers"></i></div>
-                    <h3>Integrated Energy Systems</h3>
-                    <p>How solar panels, inverters, batteries, and related components may work together in a properly designed system.</p>
-                    <button class="btn btn-outline open-enquiry-modal" data-enquiry="Integrated Energy System">Explore Solution</button>
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80" alt="Integrated energy system" loading="lazy">
+                    </div>
+                    <div class="solution-content">
+                        <div class="solution-icon"><i data-lucide="layers"></i></div>
+                        <h3>Integrated Energy Systems</h3>
+                        <p>How solar panels, inverters, batteries, and related components may work together in a properly designed system.</p>
+                        <button class="btn btn-outline open-enquiry-modal" data-enquiry="Integrated Energy System">Explore Solution</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -432,29 +474,54 @@
             </div>
             <div class="steps-grid">
                 <div class="step-card reveal">
-                    <div class="step-number">1</div>
-                    <h3>Initial Consultation</h3>
-                    <p>You explain your location, energy needs, and the appliances or equipment you want to power.</p>
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80" alt="Consultation" loading="lazy">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Initial Consultation</h3>
+                        <p>You explain your location, energy needs, and the appliances or equipment you want to power.</p>
+                    </div>
                 </div>
                 <div class="step-card reveal reveal-delay-1">
-                    <div class="step-number">2</div>
-                    <h3>Energy Requirements Assessment</h3>
-                    <p>Electricity consumption, operating hours, backup requirements, and installation conditions are reviewed.</p>
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" alt="Assessment" loading="lazy">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Energy Requirements Assessment</h3>
+                        <p>Electricity consumption, operating hours, backup requirements, and installation conditions are reviewed.</p>
+                    </div>
                 </div>
                 <div class="step-card reveal reveal-delay-2">
-                    <div class="step-number">3</div>
-                    <h3>System Design & Quotation</h3>
-                    <p>A proposed system configuration and quotation are prepared based on the assessment and available equipment.</p>
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="System design" loading="lazy">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>System Design & Quotation</h3>
+                        <p>A proposed system configuration and quotation are prepared based on the assessment and available equipment.</p>
+                    </div>
                 </div>
                 <div class="step-card reveal">
-                    <div class="step-number">4</div>
-                    <h3>Installation & Commissioning</h3>
-                    <p>Where included in the agreed contract, the system is installed, checked, and commissioned.</p>
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=400&q=80" alt="Installation" loading="lazy">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">4</div>
+                        <h3>Installation & Commissioning</h3>
+                        <p>Where included in the agreed contract, the system is installed, checked, and commissioned.</p>
+                    </div>
                 </div>
                 <div class="step-card reveal reveal-delay-1">
-                    <div class="step-number">5</div>
-                    <h3>Handover & Support</h3>
-                    <p>Operating guidance and any after-installation support confirmed by the company.</p>
+                    <div class="step-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" alt="Handover" loading="lazy">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-number">5</div>
+                        <h3>Handover & Support</h3>
+                        <p>Operating guidance and any after-installation support confirmed by the company.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -769,7 +836,6 @@
                 enquiryForm.style.display = 'block';
 
                 if (enquiryType) {
-                    // Try to match Service Required
                     let serviceMatch = false;
                     for (let option of serviceSelect.options) {
                         if (enquiryType.toLowerCase().includes(option.value.toLowerCase()) && option.value !== 'Other') {
@@ -782,7 +848,6 @@
                         serviceSelect.value = 'Other';
                     }
                     
-                    // Try to match Customer Type
                     if (enquiryType.toLowerCase().includes('residential')) {
                         customerTypeSelect.value = 'Residential';
                     } else if (enquiryType.toLowerCase().includes('commercial')) {
@@ -830,7 +895,6 @@
                 }
             });
 
-            // Email format validation
             const emailInput = document.getElementById('email');
             if (emailInput.value.trim() && !emailInput.value.includes('@')) {
                 emailInput.closest('.form-group').classList.add('error');
